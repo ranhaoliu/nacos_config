@@ -14,10 +14,27 @@ public class NacosConfigController {
     private String name;
     @Value("${java1234.age}")
     private String age;
+    @Value("${java1234.mysql.common}")
+    private String mysql;
+    @Value("${java1234.redis.common}")
+    private String redis;
+
+    @Value("${java1234.crm.config}")
+    private String crm;
+
+    @Value("${java1234.oa.config}")
+    private String oa;
     @GetMapping("/getConfigInfo")
     public String getConfigInfo(){
         return name + ":"+age;
     }
 
-
+    @GetMapping("/getCRMConfigInfo")
+    public String getCRMConfigInfo(){
+        return mysql + ":"+redis+":"+crm;
+    }
+    @GetMapping("/getOAConfigInfo")
+    public String getOAConfigInfo(){
+        return mysql + ":"+redis+":"+oa;
+    }
 }
